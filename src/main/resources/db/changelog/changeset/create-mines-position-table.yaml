@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-mines-position
+      author: vladimir
+      changes:
+        - createTable:
+            tableName: mines_position
+            columns:
+              - column:
+                  name: game_id
+                  type: uuid
+                  constraints:
+                    foreignKeyName: fk_game_id
+                    references: game(id)
+              - column:
+                  name: mines_position
+                  type: integer
+                  constraints:
+                    foreignKeyName: fk_mine_position
